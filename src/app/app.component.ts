@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BooksService } from './book.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bookstore';
+
+  books: BooksService[] = [];
+
+  constructor(private bookService: BooksService){}
 }
+
+// getBooks(): void {
+//   this.books = this.bookservice.getAllBooks()
+// }
