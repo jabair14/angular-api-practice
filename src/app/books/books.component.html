@@ -1,18 +1,23 @@
-<p>books works!</p>
-
-<div *ngFor="let book of books">
-    <p> {{book.id}}</p>
-    <div class="book-info">
-        <h1> Title: {{book.title }} </h1>
+<div class="main">
+    <p>books works!</p>
+    <div *ngFor="let book of books">
+        <div class="book-info">
+            <p> Book Number (id): {{book.id}}</p>
+            <h1> Title: {{book.title }} </h1>
+        
+            <h3> Subtitle: {{ book.subtitle }}</h3>
+            <h4> Author: {{book.author }} </h4>
+            <p>
+                <a href="{{ book.website }}" >
+                    website
+                </a>
+                
+            </p>
+            <p>
+                <button> Delete </button>
+            </p>
     
-        <h3> Subtitle: {{ book.subtitle }}</h3>
-        <h4> Author: {{book.author }} </h4>
-        <p>
-            <a href="{{ book.website }}" >
-                website
-            </a>
-            
-        </p>
-
+        </div>
     </div>
+
 </div>
