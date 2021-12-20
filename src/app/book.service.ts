@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from './books/book.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,6 +16,16 @@ export class BooksService {
     ('http://localhost:8082/api/books')
     return data
   }
+
+  deleteBook(id: number):Observable<any> {
+    return this.http.delete(`http://localhost:8082/api/books/${id}`)
+  }
+
+  // createBook(book: Book) :Observable<any> {
+  //   return this.http.post(`http://localhost:8082/api/books`, 
+
+
+
 
   
   

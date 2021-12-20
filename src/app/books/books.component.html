@@ -1,5 +1,15 @@
 <div class="main">
-    <p>books works!</p>
+    <h1> THIS THE BOOKS PAGE </h1>
+    <div class='book-info'>
+        <form action="submit">
+            Title:
+            <input type="string">
+            | Author:
+            <input type="string">
+            
+            <button> Submit </button>
+        </form>
+    </div>
     <div *ngFor="let book of books">
         <div class="book-info">
             <p> Book Number (id): {{book.id}}</p>
@@ -8,13 +18,22 @@
             <h3> Subtitle: {{ book.subtitle }}</h3>
             <h4> Author: {{book.author }} </h4>
             <p>
-                <a href="{{ book.website }}" >
-                    website
-                </a>
-                
+                Description: {{book.description}}
             </p>
             <p>
-                <button> Delete </button>
+                <a href="{{ book.website }}" >
+                    website
+                </a> 
+            </p>
+            <p>
+                Published: {{book.published}} | Publisher: {{book.publisher}} | Pages: {{book.pages}}
+            </p>
+            <h2> Price: {{book.price | currency}} </h2>
+            <p>
+                <button (click)="onDeleteBook(book.id)"> Delete </button> 
+                <br>
+                <br>
+                <!-- <button (click)="createBook(book)"></button> -->
             </p>
     
         </div>

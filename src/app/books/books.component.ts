@@ -11,7 +11,14 @@ export class BooksComponent implements OnInit {
 
   books: Book[] = [];
 
+  newBook: any = {
+    title: ""
+  }
+
   constructor(private bookservice: BooksService) { }
+
+
+  
 
   ngOnInit(): void {
     this.bookservice.getBooks().subscribe(
@@ -20,5 +27,25 @@ export class BooksComponent implements OnInit {
       }
     )
   }
+
+  onDeleteBook(id: number) {
+    this.bookservice.deleteBook(id).subscribe(
+      (res) => {
+        console.log(res)
+        // console.log (this.bookservice.getBooks())
+      }
+    )
+    this.ngOnInit()
+  }
+
+//  onCreateBook(newBook: any) {
+//    this.bookservice.createBook(newBook).subscribe(
+//      (res) => console.log(res)
+//    )
+//  }
+
+ 
+
+
 
 }
