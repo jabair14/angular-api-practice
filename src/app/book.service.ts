@@ -21,8 +21,16 @@ export class BooksService {
     return this.http.delete(`http://localhost:8082/api/books/${id}`)
   }
 
-  // createBook(book: Book) :Observable<any> {
-  //   return this.http.post(`http://localhost:8082/api/books`, 
+  createBook(book: any){
+    return this.http.post('http://localhost:8082/api/books', book)
+  }
+  
+  updateBook(id: number, newBook: any) {
+    return this.http.put(`http://localhost:8082/api/books/${id}`, newBook)
+  }
+  // updateBook(id, book: any){
+  //   return this.http.put('http://localhost:8082/api/books', book)
+  // }
 
 
 

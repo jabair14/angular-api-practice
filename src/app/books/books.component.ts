@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from './book.model';
 import { BooksService } from '../book.service';
+import { NgForm } from "@angular/forms";
+
 
 @Component({
   selector: 'app-books',
@@ -12,8 +14,19 @@ export class BooksComponent implements OnInit {
   books: Book[] = [];
 
   newBook: any = {
-    title: ""
+    title: "",
+    author: "",
+
   }
+
+  
+  show = false;
+  showCreate = false;
+
+
+  
+
+  
 
   constructor(private bookservice: BooksService) { }
 
@@ -38,10 +51,22 @@ export class BooksComponent implements OnInit {
     this.ngOnInit()
   }
 
-//  onCreateBook(newBook: any) {
-//    this.bookservice.createBook(newBook).subscribe(
-//      (res) => console.log(res)
-//    )
+ onCreateBook(newBook: any) {
+   this.bookservice.createBook(newBook).subscribe(
+     (res) => console.log(res)
+   )
+   this.ngOnInit()
+ }
+
+ onUpdateBook(id:number, newBook:any) {
+   this.bookservice.updateBook(id, newBook).subscribe(
+     (res) => console.log(res)
+   )
+   this.ngOnInit()
+ }
+
+//  showUpdateDiv() {
+//    console.log("clicked")
 //  }
 
  

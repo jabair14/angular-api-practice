@@ -1,14 +1,20 @@
 <div class="main">
     <h1> THIS THE BOOKS PAGE </h1>
     <div class='book-info'>
-        <form action="submit">
+        <button (click)="showCreate = !showCreate"> Create Book </button>
+        <br>
+        <br>
+        
+        <div *ngIf="showCreate">
             Title:
-            <input type="string">
+            <input [(ngModel)]= "newBook.title" type="text" value="">
             | Author:
-            <input type="string">
+            <input [(ngModel)]= "newBook.author" type="text" value="">
             
-            <button> Submit </button>
-        </form>
+            <button (click)="onCreateBook(newBook)"> Submit </button>
+            
+        </div>
+        
     </div>
     <div *ngFor="let book of books">
         <div class="book-info">
@@ -33,9 +39,21 @@
                 <button (click)="onDeleteBook(book.id)"> Delete </button> 
                 <br>
                 <br>
-                <!-- <button (click)="createBook(book)"></button> -->
+                <button  (click)="show = !show">Edit </button>
+                <!-- show ={{show}} -->
             </p>
-    
+            <div *ngIf="show" class="edit-div">
+                <label for="input">Title </label>
+                <input [(ngModel)]="newBook.title" type="text" value="{{book.title}}">
+                |
+                <label for="input">Author </label>
+                <input [(ngModel)]="newBook.author" type="text" value="{{book.author}}">
+                <br>
+                <br>
+                <button (click)="onUpdateBook(book.id, newBook)"> Update </button> <br>
+
+            </div>
+            
         </div>
     </div>
 
